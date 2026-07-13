@@ -1,0 +1,59 @@
+/* ================================================================
+   1. VARIABLES Y TEMA GLOBAL (VERSIÓN FUTURISTA / NEÓN)
+   ================================================================ */
+:root{
+  --void:#020205; /* Más oscuro para resaltar los neones */
+  --void-2:#050714;
+  --surface:rgba(12, 16, 33, 0.65);
+  --surface-2:rgba(18, 23, 45, 0.75);
+  --surface-3:rgba(25, 32, 60, 0.85);
+  --border:rgba(0, 255, 255, 0.15); /* Bordes con ligero tono cyan */
+  --border-soft:rgba(255, 255, 255, 0.05);
+  --border-strong:rgba(0, 255, 255, 0.4);
+  --text:#ffffff;
+  --text-dim:#a3adc2;
+  --text-faint:#4f5a7a;
+  
+  /* Colores Neón Ciberpunk */
+  --violet:#b721ff;
+  --violet-dim:#6d129e;
+  --cyan:#00f0ff;
+  --amber:#ffaa00;
+  --rose:#ff2a7a;
+  --green:#00ff87;
+  --fijo:#ff007c;
+  --variable:#8a2be2;
+  --ahorro:#00f3ff;
+  
+  --accent:var(--cyan);
+  --accent-2:var(--violet);
+  --glass-blur:24px; /* Mayor efecto de cristal */
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+
+/* Tema por sección: cada sección tiñe la app con su propio acento neón */
+body[data-section="hub"]{ --accent:#b721ff; --accent-2:#00f0ff; }
+body[data-section="metas"]{ --accent:#ffaa00; --accent-2:#ffea00; }
+body[data-section="calistenia"]{ --accent:#00ff87; --accent-2:#00f0ff; }
+body[data-section="gastos"]{ --accent:#ff007c; --accent-2:#8a2be2; }
+body[data-section="juegos"]{ --accent:#0088ff; --accent-2:#d400ff; }
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  background:var(--void);
+  color:var(--text);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+::selection{background:var(--cyan);color:#000;}
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:var(--void-2);}
+::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:10px;box-shadow: 0 0 10px var(--cyan);}
+::-webkit-scrollbar-thumb:hover{background:var(--cyan);}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}

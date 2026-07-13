@@ -1,0 +1,153 @@
+/* ================================================================
+   12. GASTOS — dashboard de vidrio, dona y listas
+   ================================================================ */
+.galactic-dashboard{ padding:0; }
+
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:1.5rem;
+  margin-top:1.5rem;
+}
+.col-span-2{ grid-column:1 / -1; }
+
+.glass-card{
+  position:relative;
+  background:rgba(18,20,36,.5);
+  backdrop-filter:blur(var(--glass-blur));
+  -webkit-backdrop-filter:blur(var(--glass-blur));
+  border-radius:18px;
+  padding:1.8rem;
+  border:1px solid var(--border-soft);
+  box-shadow:0 8px 32px rgba(0,0,0,.35);
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.glass-card:hover{ transform:translateY(-4px); }
+
+.card-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
+.card-header h3{ font-family:var(--font-display); font-size:15px; font-weight:600; }
+.card-header .icon{ font-size:18px; filter:drop-shadow(0 0 6px rgba(255,255,255,.3)); }
+
+.neon-blue:hover{ box-shadow:0 0 26px rgba(79,224,240,.3); border-color:rgba(79,224,240,.5); }
+.neon-pink:hover{ box-shadow:0 0 26px rgba(255,63,168,.3); border-color:rgba(255,63,168,.5); }
+.neon-purple:hover{ box-shadow:0 0 26px rgba(161,91,255,.3); border-color:rgba(161,91,255,.5); }
+.neon-cyan:hover{ box-shadow:0 0 26px rgba(0,240,208,.3); border-color:rgba(0,240,208,.5); }
+
+/* Resumen mensual: dona + leyenda */
+.resumen-body{ display:flex; align-items:center; gap:34px; flex-wrap:wrap; }
+.donut-wrap{ flex-shrink:0; }
+.donut{
+  width:158px; height:158px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  animation:donut-in .8s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 0 44px rgba(161,91,255,.3);
+}
+@keyframes donut-in{ from{ transform:rotate(-90deg) scale(.7); opacity:0; } to{ transform:rotate(0) scale(1); opacity:1; } }
+.donut-hole{
+  width:112px; height:112px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #171a2c, #06070f 75%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; box-shadow:inset 0 0 14px rgba(0,0,0,.7);
+}
+.donut-hole .label{ font-family:var(--font-mono); font-size:9px; letter-spacing:.08em; color:var(--text-faint); text-transform:uppercase; }
+.donut-hole strong{
+  font-family:var(--font-display); font-size:19px; margin-top:4px;
+  background:linear-gradient(90deg,#00f0d0,#ff3fa8,#a15bff);
+  background-size:200% auto;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  animation:shimmer 6s linear infinite;
+}
+@keyframes shimmer{ to{ background-position:200% center; } }
+
+.resumen-side{ flex:1; min-width:200px; display:flex; flex-direction:column; }
+.legend{ display:flex; flex-direction:column; gap:10px; }
+.legend-row{ display:flex; align-items:center; gap:9px; font-size:13px; }
+.legend-row .dot{ width:10px; height:10px; border-radius:50%; flex-shrink:0; box-shadow:0 0 8px currentColor; }
+.legend-label{ flex:1; color:var(--text-dim); }
+.legend-val{ font-family:var(--font-mono); color:var(--text); font-size:12px; }
+.legend-pct{ font-family:var(--font-mono); color:var(--text-faint); font-size:11px; width:36px; text-align:right; }
+
+/* Listas de gastos */
+.expense-list{ list-style:none; padding:0; margin-bottom:1rem; display:flex; flex-direction:column; gap:10px; }
+.expense-item{
+  padding:.7rem .6rem; border-radius:10px;
+  background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);
+  transition:background .25s ease, border-color .25s ease;
+}
+.expense-item:hover{ background:rgba(255,255,255,.065); }
+.exp-top{ display:flex; align-items:center; gap:10px; }
+.exp-icon{ font-size:17px; flex-shrink:0; }
+.exp-info{ display:flex; flex-direction:column; flex:1; min-width:0; }
+.exp-name{ font-size:13px; color:var(--text); }
+.exp-cat{ font-family:var(--font-mono); font-size:10px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.04em; }
+.exp-top .exp-amount{ font-family:var(--font-mono); font-weight:600; color:var(--text); font-size:13px; white-space:nowrap; }
+.expense-item .btn-danger{ padding:3px 7px; font-size:11px; }
+.exp-bottom{ display:flex; align-items:center; gap:10px; margin-top:8px; }
+
+.pill{
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.04em; text-transform:uppercase;
+  padding:4px 10px; border-radius:20px; border:none; cursor:pointer; flex-shrink:0;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.pill:active{ transform:scale(.94); }
+.pill-paid{ background:rgba(0,240,208,.16); color:var(--ahorro); box-shadow:0 0 10px rgba(0,240,208,.18); }
+.pill-pending{ background:rgba(255,63,168,.16); color:var(--fijo); box-shadow:0 0 10px rgba(255,63,168,.15); animation:pulse-pending 2.4s ease-in-out infinite; }
+@keyframes pulse-pending{ 0%,100%{ opacity:1; } 50%{ opacity:.6; } }
+
+.mini-track{ flex:1; height:6px; border-radius:4px; background:rgba(255,255,255,.07); overflow:hidden; }
+.mini-fill{ height:100%; border-radius:4px; transition:width .8s cubic-bezier(.2,.8,.2,1); position:relative; }
+.mini-fill.fijo-fill{ background:linear-gradient(90deg,var(--fijo),#ff7fc7); box-shadow:0 0 8px var(--fijo); }
+.mini-fill.variable-fill{ background:linear-gradient(90deg,var(--variable),#c79bff); box-shadow:0 0 8px var(--variable); }
+.mini-fill.ahorro-fill{ background:linear-gradient(90deg,var(--ahorro),#7dfff0); box-shadow:0 0 8px var(--ahorro); }
+
+.savings-item{ position:relative; padding-bottom:1.6rem; }
+.savings-pct{ position:absolute; right:.6rem; bottom:.55rem; font-family:var(--font-mono); font-size:10px; color:var(--ahorro); }
+.savings-item .mini-track{ margin-top:8px; }
+
+.mini-bars{ display:flex; flex-direction:column; gap:8px; margin:6px 0 14px; }
+.mini-bar-row{ display:flex; align-items:center; gap:8px; }
+.mini-bar-label{ width:78px; font-size:11px; color:var(--text-dim); flex-shrink:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mini-bar-val{ font-family:var(--font-mono); font-size:10px; color:var(--text-faint); width:64px; text-align:right; flex-shrink:0; }
+
+/* Filas de gasto en el preview del Hub */
+.exp-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border-soft);font-size:13px;}
+.exp-row:last-child{border-bottom:none;}
+.exp-left{display:flex;align-items:center;gap:12px;}
+.exp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;box-shadow:0 0 6px currentColor;}
+.exp-left .exp-cat{color:var(--text-faint);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;}
+.exp-row .exp-amount{font-family:var(--font-mono);color:var(--amber);font-weight:600;}
+
+.cat-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.cat-bar-row .cat-label{width:110px;font-size:12px;color:var(--text-dim);flex-shrink:0;}
+.cat-bar-track{flex:1;height:10px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden;}
+.cat-bar-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--rose));border-radius:6px;transition:width .8s ease;}
+.cat-bar-val{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);width:70px;text-align:right;flex-shrink:0;}
+
+/* Botones de acción tipo "añadir" con borde punteado */
+.btn-add{
+  width:100%;
+  padding:.7rem;
+  background:rgba(255,255,255,.03);
+  border:1px dashed rgba(255,255,255,.22);
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  transition:all .3s;
+  font-weight:500;
+  font-size:12.5px;
+}
+.btn-add:hover{
+  background:rgba(255,255,255,.09);
+  border-color:var(--accent-2);
+  box-shadow:0 0 16px color-mix(in srgb, var(--accent-2) 30%, transparent);
+  transform:scale(1.02);
+}
+
+@media (max-width:560px){
+  .resumen-body{ justify-content:center; text-align:center; }
+  .resumen-side{ align-items:center; }
+  .legend-row{ justify-content:center; }
+}
+
+

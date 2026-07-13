@@ -1,0 +1,24 @@
+/* ================================================================
+   9. ENCABEZADOS DE SECCIÓN / SUBTABS
+   ================================================================ */
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:34px 0 16px;}
+.section-head:first-of-type{margin-top:0;}
+.section-head h2{font-family:var(--font-display);font-size:18px;font-weight:600;position:relative;padding-left:14px;}
+.section-head h2::before{
+  content:'';position:absolute;left:0;top:3px;bottom:3px;width:3px;border-radius:3px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  box-shadow:0 0 10px color-mix(in srgb, var(--accent) 60%, transparent);
+  transition:background .4s ease;
+}
+
+.subtabs{display:flex;gap:6px;margin-bottom:20px;border-bottom:1px solid var(--border-soft);}
+.subtab{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;
+  padding:9px 4px;margin-right:18px;color:var(--text-faint);
+  background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;
+  transition:color .25s ease, border-color .25s ease;
+}
+.subtab.active{color:var(--accent-2);border-color:var(--accent-2);transition:color .4s ease, border-color .4s ease;}
+.subview{display:none;} .subview.visible{display:block;animation:warp-in .4s ease;}
+
+

@@ -1,0 +1,25 @@
+<!-- ============================================================
+     MODAL: NUEVO JUEGO
+     JS relacionado: js/games.js
+     ============================================================ -->
+<div class="modal-bg" id="modal-game">
+  <div class="modal">
+    <h3>Agregar juego</h3>
+    <div class="field"><label>Título</label><input id="j-title" placeholder="Ej. Elden Ring"></div>
+    <div class="field-row">
+      <div class="field"><label>Plataforma</label><input id="j-plat" placeholder="Ej. PC, PS5, Switch"></div>
+      <div class="field"><label>Estado</label>
+        <select id="j-status"><option value="backlog">Backlog</option><option value="jugando">Jugando</option><option value="completado">Completado</option></select>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Calificación (0-5)</label><input id="j-rating" type="number" min="0" max="5" value="0"></div>
+      <div class="field"><label>Horas jugadas</label><input id="j-hours" type="number" min="0" value="0"></div>
+    </div>
+    <div class="field"><label>Portada (opcional)</label><input id="j-file" type="file" accept="image/*"></div>
+    <div class="modal-actions">
+      <button class="btn" data-close="modal-game">Cancelar</button>
+      <button class="btn btn-primary" id="saveGameBtn">Guardar juego</button>
+    </div>
+  </div>
+</div>

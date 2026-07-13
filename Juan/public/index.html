@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA — Hub Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================================================================
+     Este archivo es solo un ESQUELETO. Cada sección real de la página
+     vive en su propio archivo dentro de /public/partials/, tal como
+     el CSS vive en /public/css/secciones/. Un archivo = una sección.
+
+     ¿Por qué? Para que borrar o editar mal una sección (ej. el Hub)
+     sea IMPOSIBLE que rompa otra (ej. Metas o Juegos): son archivos
+     separados, cargados por separado por public/js/include.js.
+
+     "Quiero cambiar la pantalla de Hub" → partials/05-hub.html
+     "Quiero cambiar el modal de gastos" → partials/14-modal-gasto.html
+     (lista completa en GUIA-DE-EDICION.md)
+     ================================================================ -->
+
+<!-- Pantalla de carga mientras se arma la página (ver js/include.js) -->
+<div class="boot-veil" id="bootVeil">
+  <div class="boot-mark"></div>
+  <span class="boot-text">Iniciando NOVA…</span>
+</div>
+
+<!-- Aquí se insertan las notificaciones (toasts) -->
+<div class="toast-stack" id="toastStack"></div>
+
+<div data-include="partials/01-fondo-galactico.html"></div>
+<div data-include="partials/02-marca-flotante.html"></div>
+<div data-include="partials/03-dock-navegacion.html"></div>
+
+<div class="app">
+  <main>
+    <div data-include="partials/04-topbar.html"></div>
+    <div data-include="partials/05-hub.html"></div>
+    <div data-include="partials/06-metas.html"></div>
+    <div data-include="partials/07-calistenia.html"></div>
+    <div data-include="partials/08-gastos.html"></div>
+    <div data-include="partials/09-juegos.html"></div>
+  </main>
+</div>
+
+<div data-include="partials/11-modal-meta.html"></div>
+<div data-include="partials/12-modal-rutina.html"></div>
+<div data-include="partials/13-modal-foto.html"></div>
+<div data-include="partials/14-modal-gasto.html"></div>
+<div data-include="partials/15-modal-juego.html"></div>
+<div data-include="partials/16-modal-confirmar.html"></div>
+
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<section class="section cabina-mando" id="sec-hub">
+
+  <div class="reloj-contenedor">
+    <!-- Anillo delgado de progreso: da una vuelta completa cada minuto -->
+    <svg class="reloj-anillo" viewBox="0 0 300 300" aria-hidden="true">
+      <circle class="anillo-pista" cx="150" cy="150" r="142"/>
+      <circle class="anillo-progreso" id="anilloSegundos" cx="150" cy="150" r="142"/>
+    </svg>
+
+    <!-- Esfera de cristal flotando, con la hora adentro -->
+    <div class="reloj-esfera">
+      <h1 id="relojPrincipal">00:00:00</h1>
+    </div>
+  </div>
+
+  <div class="fecha-espacial">
+    <span class="pulso-vivo" aria-hidden="true"></span>
+    <span id="fechaPrincipal">-- --- ----</span>
+    <span class="fecha-separador">•</span>
+    <span class="ubicacion">MEDELLÍN, COL</span>
+  </div>
+
+</section>

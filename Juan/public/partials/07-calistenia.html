@@ -1,0 +1,23 @@
+<!-- ============================================================
+     SECCIÓN: PANTALLA CALISTENIA (rutinas + fotos de progreso)
+     CSS relacionado: css/secciones/11-calistenia.css
+     JS relacionado:  js/routines.js, js/photos.js
+     Esta sección es independiente: si la borras o la editas mal,
+     Hub, Metas, Gastos y Juegos siguen funcionando normal.
+     ============================================================ -->
+<section class="section" id="sec-calistenia">
+  <div class="subtabs">
+    <button class="subtab active" data-sub="rutinas">RUTINAS</button>
+    <button class="subtab" data-sub="fotos">FOTOS DE PROGRESO</button>
+  </div>
+
+  <div class="subview visible" id="sub-rutinas">
+    <div class="section-head"><h2>Mis rutinas</h2><button class="btn btn-primary" id="addRoutineBtn">+ Nueva rutina</button></div>
+    <div class="grid grid-3" id="routinesList"></div>
+  </div>
+
+  <div class="subview" id="sub-fotos">
+    <div class="section-head"><h2>Fotos de progreso</h2><button class="btn btn-primary" id="addPhotoBtn">+ Subir foto</button></div>
+    <div class="photo-grid" id="photosList"></div>
+  </div>
+</section>

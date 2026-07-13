@@ -1,0 +1,60 @@
+/* ================================================================
+   NOVA — HUB PERSONAL — ÍNDICE DE ESTILOS
+   ================================================================
+   Este archivo YA NO tiene el CSS adentro. Solo importa, en orden,
+   los archivos reales que están en la carpeta /css/secciones/.
+
+   ¿Por qué se dividió así?
+   Para que sea imposible confundirse al pedirle cambios a otra IA
+   (como Gemini): en vez de decir "edita la sección 4 de un archivo
+   de 700 líneas", ahora se puede decir literalmente:
+
+       "Abre el archivo secciones/04-dock-navegacion.css y cambia..."
+
+   Y no hay ambigüedad posible: un archivo = un tema visual.
+
+   GUÍA RÁPIDA — "quiero cambiar..." → "edita este archivo":
+   -----------------------------------------------------------------
+   Colores generales de toda la página, fuentes         → 01-colores-y-fuentes.css
+   El fondo (estrellas, grid, y el fondo propio de cada
+   sección: Hub=nebulosa, Metas/Calistenia/Gastos/Juegos) → 02-fondo-galactico.css
+   El logo/marca "NOVA" arriba a la izquierda            → 03-marca-flotante.css
+   El dock/menú flotante de iconos de abajo              → 04-dock-navegacion.css
+   El ancho del contenido, el título de página            → 05-layout-topbar.css
+   El estilo general de las tarjetas (cards)             → 06-tarjetas-base.css
+   Los botones (+ Nueva meta, Guardar, Cancelar, etc.)   → 07-botones.css
+   El reloj holográfico y la cabina de mando del Hub     → 08-cabina-inicio.css
+   Los títulos de cada sección y las pestañas (subtabs)  → 09-encabezados-subtabs.css
+   La pantalla de Metas                                  → 10-metas.css
+   La pantalla de Calistenia (rutinas y fotos)           → 11-calistenia.css
+   La pantalla de Gastos (dona, tarjetas de vidrio)      → 12-gastos.css
+   La pantalla de Juegos                                 → 13-juegos.css
+   Las ventanas emergentes (modales) y formularios       → 14-modales.css
+   El botón circular flotante "+"                        → 15-boton-flotante.css
+   Ajustes finales para pantallas pequeñas               → 16-utilidades.css
+   Pantalla de carga, notificaciones, confirmar borrado  → 17-interactividad.css
+   -----------------------------------------------------------------
+   Nota técnica: el orden de los @import SÍ importa en CSS (el que
+   viene después puede sobrescribir al anterior), así que no cambies
+   el orden de esta lista salvo que sepas lo que haces.
+   ================================================================ */
+
+@import url("secciones/01-colores-y-fuentes.css");
+@import url("secciones/02-fondo-galactico.css");
+@import url("secciones/03-marca-flotante.css");
+@import url("secciones/04-dock-navegacion.css");
+@import url("secciones/05-layout-topbar.css");
+@import url("secciones/06-tarjetas-base.css");
+@import url("secciones/07-botones.css");
+@import url("secciones/08-cabina-inicio.css");
+@import url("secciones/09-encabezados-subtabs.css");
+@import url("secciones/10-metas.css");
+@import url("secciones/11-calistenia.css");
+@import url("secciones/12-gastos.css");
+@import url("secciones/13-juegos.css");
+@import url("secciones/14-modales.css");
+@import url("secciones/15-boton-flotante.css");
+@import url("secciones/16-utilidades.css");
+@import url("secciones/17-interactividad.css");
+
+

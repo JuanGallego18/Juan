@@ -1,0 +1,20 @@
+<!-- ============================================================
+     MODAL: NUEVA META
+     JS relacionado: js/goals.js
+     ============================================================ -->
+<div class="modal-bg" id="modal-goal">
+  <div class="modal">
+    <h3>Nueva meta</h3>
+    <div class="field"><label>Título</label><input id="g-title" placeholder="Ej. Dominar el front lever"></div>
+    <div class="field"><label>Categoría</label><input id="g-cat" placeholder="Ej. Fitness, Carrera, Personal"></div>
+    <div class="field-row">
+      <div class="field"><label>Progreso (%)</label><input id="g-pct" type="number" min="0" max="100" value="0"></div>
+      <div class="field"><label>Fecha objetivo</label><input id="g-date" type="date"></div>
+    </div>
+    <div class="field"><label>Notas</label><textarea id="g-notes" placeholder="Detalles, pasos, por qué importa..."></textarea></div>
+    <div class="modal-actions">
+      <button class="btn" data-close="modal-goal">Cancelar</button>
+      <button class="btn btn-primary" id="saveGoalBtn">Guardar meta</button>
+    </div>
+  </div>
+</div>

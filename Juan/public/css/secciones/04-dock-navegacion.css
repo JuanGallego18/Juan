@@ -1,0 +1,81 @@
+/* ================================================================
+   4. DOCK DE NAVEGACIÓN FLOTANTE (PANEL HOLOGRAMA)
+   ================================================================ */
+.orbit-dock{
+  position:fixed;left:50%;bottom:28px;transform:translateX(-50%);
+  z-index:30;
+}
+.dock-inner{
+  display:flex;align-items:center;gap:10px;
+  padding:10px;border-radius:24px;
+  background:rgba(5, 7, 15, 0.65);
+  border:1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 
+              0 0 20px color-mix(in srgb, var(--accent) 20%, transparent),
+              inset 0 1px 1px rgba(255,255,255,0.1);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.nav-dot{
+  position:relative;
+  width:52px;height:52px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid transparent;
+  color:var(--text-faint);cursor:pointer;
+  transition:all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Salto elástico */
+}
+.nav-dot svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;transition:all .4s ease;}
+.nav-dot:hover{
+  color:#fff;
+  background:rgba(255,255,255,0.1);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent);
+  transform: translateY(-4px);
+}
+.nav-dot:hover svg{transform:scale(1.2); filter: drop-shadow(0 0 5px #fff);}
+
+.nav-dot.active{
+  color:#fff;
+  background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, transparent), color-mix(in srgb, var(--accent-2) 20%, transparent));
+  border-color:var(--accent);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 50%, transparent), 
+              inset 0 0 10px color-mix(in srgb, var(--accent-2) 30%, transparent);
+  transform: translateY(-6px);
+}
+.nav-dot.active svg { filter: drop-shadow(0 0 8px var(--accent-2)); }
+
+.nav-dot.active::before{
+  content:'';position:absolute;inset:-8px;
+  border-radius:24px;
+  border:2px solid color-mix(in srgb, var(--accent-2) 60%, transparent);
+  border-top-color: transparent; border-bottom-color: transparent;
+  animation:orbitring 2.5s linear infinite;
+}
+@keyframes orbitring{
+  0%{transform:rotate(0deg) scale(1); opacity: 0.8;}
+  50%{transform:rotate(180deg) scale(1.1); opacity: 0.3;}
+  100%{transform:rotate(360deg) scale(1); opacity: 0.8;}
+}
+
+.nav-dot .tip{
+  position:absolute;left:50%;bottom:70px;transform:translateX(-50%) translateY(10px) scale(0.9);
+  background:rgba(5, 7, 15, 0.95);
+  border:1px solid var(--accent);
+  color: var(--accent-2);
+  padding:6px 12px;border-radius:8px;font-size:12px;white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family:var(--font-mono);letter-spacing:.1em;
+  text-transform: uppercase;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5), 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.nav-dot:hover .tip{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}
+
+@media (max-width:760px){
+  .orbit-dock{ bottom:16px; left:16px; right:16px; transform:none; width:auto; }
+  .dock-inner{ justify-content:space-between; padding:8px; }
+  .nav-dot{ width:auto;flex:1;height:50px; }
+  .nav-dot:hover{ transform: translateY(-2px); }
+  .nav-dot.active{ transform: translateY(-3px); }
+  .nav-dot .tip{ display:none; }
+}

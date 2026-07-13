@@ -1,0 +1,137 @@
+/* ================================================================
+   2. FONDO GALÁCTICO — BASE COMPARTIDA + FONDO POR SECCIÓN
+   ================================================================
+   La base (estrellas, grid del piso, viñeta) es igual en toda la
+   app. Lo único que cambia entre secciones es la capa `.fondo-imagen`:
+
+     · Hub        → foto real de la nebulosa (public/img/nebulosa.jpg)
+     · Metas / Calistenia / Gastos / Juegos → degradado propio hecho
+       con los colores de acento de esa sección (así cada una se ve
+       distinta del Hub, sin necesitar una imagen nueva por sección)
+
+   ¿Cómo agregar el fondo de una sección nueva? Copia uno de los
+   bloques `body[data-section="..."] .fondo-imagen{...}` de abajo y
+   cambia el nombre de la sección.
+
+   El efecto de "atravesar" la nebulosa con el mouse lo mueve
+   js/stars.js directamente por JS (mira `.nebula-parallax` y
+   `#fondoImagen` ahí) — aquí solo se define la transición para que
+   el movimiento se vea suave.
+   ================================================================ */
+
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* --- Capa de fondo específica de cada sección --- */
+.fondo-imagen{
+  position:fixed;inset:-8%;z-index:0;pointer-events:none;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  transform:scale(1.08);
+  transition:opacity 1s ease, transform .35s ease-out;
+  will-change:transform;
+}
+
+body[data-section="hub"] .fondo-imagen{
+  background-image:url('../../img/nebulosa.jpg');
+  opacity:.55;
+}
+body[data-section="metas"] .fondo-imagen{
+  background-image:
+    radial-gradient(circle at 22% 18%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 60%),
+    radial-gradient(circle at 82% 78%, color-mix(in srgb, var(--accent-2) 45%, transparent), transparent 65%);
+  background-color:var(--void-2);
+  opacity:.85;
+}
+body[data-section="calistenia"] .fondo-imagen{
+  background-image:
+    radial-gradient(circle at 78% 14%, color-mix(in srgb, var(--accent) 50%, transparent), transparent 60%),
+    radial-gradient(circle at 12% 82%, color-mix(in srgb, var(--accent-2) 42%, transparent), transparent 65%);
+  background-color:var(--void-2);
+  opacity:.85;
+}
+body[data-section="gastos"] .fondo-imagen{
+  background-image:
+    radial-gradient(circle at 18% 76%, color-mix(in srgb, var(--accent) 50%, transparent), transparent 60%),
+    radial-gradient(circle at 86% 20%, color-mix(in srgb, var(--accent-2) 42%, transparent), transparent 65%);
+  background-color:var(--void-2);
+  opacity:.85;
+}
+body[data-section="juegos"] .fondo-imagen{
+  background-image:
+    radial-gradient(circle at 82% 82%, color-mix(in srgb, var(--accent) 50%, transparent), transparent 60%),
+    radial-gradient(circle at 16% 16%, color-mix(in srgb, var(--accent-2) 42%, transparent), transparent 65%);
+  background-color:var(--void-2);
+  opacity:.85;
+}
+
+.nebula-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+
+/* Capa que js/stars.js desplaza con el mouse. La nebulosa de adentro
+   mantiene su propio drift (nebula-drift) sin que choque con esto:
+   son dos elementos distintos, así que los dos movimientos se suman. */
+.nebula-parallax{
+  position:absolute;inset:0;
+  pointer-events:none;
+  transition:transform .35s ease-out;
+  will-change:transform;
+}
+
+.nebula-blob{
+  position:absolute;border-radius:50%;filter:blur(90px);opacity:0.75;
+  animation:nebula-drift 25s ease-in-out infinite alternate;
+  transition:background 1.2s ease;
+  mix-blend-mode: screen;
+}
+.nebula-blob.b1{width:56vw;height:56vw;top:-18vw;left:-14vw;background:radial-gradient(circle,var(--accent),transparent 68%);animation-duration:32s;}
+.nebula-blob.b2{width:46vw;height:46vw;bottom:-20vw;right:-12vw;background:radial-gradient(circle,var(--accent-2),transparent 68%);animation-duration:38s;animation-delay:-6s;}
+.nebula-blob.b3{width:36vw;height:36vw;top:28%;right:6%;background:radial-gradient(circle,var(--rose),transparent 70%);opacity:0.4;animation-duration:25s;animation-delay:-12s;}
+.nebula-blob.b4{width:32vw;height:32vw;bottom:8%;left:4%;background:radial-gradient(circle,var(--cyan),transparent 70%);opacity:0.4;animation-duration:35s;animation-delay:-20s;}
+@keyframes nebula-drift{
+  0%{transform:translate(0,0) scale(1) rotate(0deg);}
+  50%{transform:translate(6%,-5%) scale(1.15) rotate(15deg);}
+  100%{transform:translate(-5%,6%) scale(1.05) rotate(-10deg);}
+}
+
+.aurora-swirl{
+  position:absolute;top:50%;left:50%;width:150vmax;height:150vmax;
+  transform:translate(-50%,-50%);
+  background:conic-gradient(from 0deg,
+    color-mix(in srgb, var(--accent) 30%, transparent),
+    transparent 15%,
+    color-mix(in srgb, var(--accent-2) 25%, transparent) 35%,
+    transparent 50%,
+    color-mix(in srgb, var(--rose) 20%, transparent) 68%,
+    transparent 85%,
+    color-mix(in srgb, var(--accent) 30%, transparent) 100%);
+  opacity:0.45;filter:blur(30px);
+  animation:aurora-spin 80s linear infinite;
+  mix-blend-mode:screen;
+  transition:background 1.2s ease;
+}
+@keyframes aurora-spin{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
+
+/* Horizonte de grid Ciberpunk */
+.grid-horizon{
+  position:fixed;left:0;right:0;bottom:0;height:48vh;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--accent) 80%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--accent-2) 80%, transparent) 1px, transparent 1px);
+  background-size:80px 80px;
+  transform:perspective(300px) rotateX(65deg) scale(2);
+  transform-origin:bottom;
+  opacity:0.3;
+  -webkit-mask-image:linear-gradient(to top, black 10%, transparent 70%);
+  mask-image:linear-gradient(to top, black 10%, transparent 70%);
+  animation:grid-drift 4s linear infinite;
+  transition:background-image 1.2s ease;
+  box-shadow: 0 -20px 60px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+@keyframes grid-drift{ from{ background-position:0 0, 0 0; } to{ background-position:0 80px, 0 0; } }
+
+.vignette{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 40%, transparent 50%, rgba(0,0,0,0.85) 100%);
+}
+
+body{
+  background-color: var(--void);
+}

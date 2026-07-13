@@ -1,0 +1,66 @@
+<!-- ============================================================
+     SECCIÓN: PANTALLA GASTOS
+     CSS relacionado: css/secciones/12-gastos.css
+     JS relacionado:  js/expenses.js
+     Esta sección es independiente: si la borras o la editas mal,
+     Hub, Metas, Calistenia y Juegos siguen funcionando normal.
+     ============================================================ -->
+<section class="section galactic-dashboard" id="sec-gastos">
+
+  <div class="dashboard-grid">
+    <!-- Resumen Mensual -->
+    <div class="glass-card neon-blue col-span-2 resumen-card">
+      <div class="card-header">
+        <h3>Resumen Mensual</h3>
+        <span class="icon">🪐</span>
+      </div>
+
+      <div class="resumen-body">
+        <div class="donut-wrap">
+          <div class="donut" id="expenseDonut">
+            <div class="donut-hole">
+              <span class="label">Total del mes</span>
+              <strong id="total-balance">$0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="resumen-side">
+          <div class="legend" id="expenseLegend"></div>
+          <button class="btn btn-primary" id="addExpenseBtn" style="margin-top:14px;align-self:flex-start;">+ Nuevo registro</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gastos Fijos -->
+    <div class="glass-card neon-pink">
+      <div class="card-header">
+        <h3>Gastos Fijos</h3>
+        <span class="icon">🏠</span>
+      </div>
+      <ul id="lista-fijos" class="expense-list"></ul>
+      <button class="btn-add" data-open-type="fijo">+ Añadir Fijo</button>
+    </div>
+
+    <!-- Gastos Variables -->
+    <div class="glass-card neon-purple">
+      <div class="card-header">
+        <h3>Gastos Variables</h3>
+        <span class="icon">☄️</span>
+      </div>
+      <ul id="lista-variables" class="expense-list"></ul>
+      <div class="mini-bars" id="variablesBars"></div>
+      <button class="btn-add" data-open-type="variable">+ Añadir Variable</button>
+    </div>
+
+    <!-- Objetivos de Ahorro -->
+    <div class="glass-card neon-cyan col-span-2">
+      <div class="card-header">
+        <h3>Objetivos de Ahorro</h3>
+        <span class="icon">⭐</span>
+      </div>
+      <ul id="lista-ahorros" class="expense-list savings-list"></ul>
+      <button class="btn-add" data-open-type="ahorro">+ Nueva Meta</button>
+    </div>
+  </div>
+</section>

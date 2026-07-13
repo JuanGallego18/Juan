@@ -1,0 +1,30 @@
+<!-- ============================================================
+     SECCIÓN: FONDO GALÁCTICO
+     (imagen de fondo por sección + estrellas + nebulosa + grid + brillo)
+     CSS relacionado: css/secciones/02-fondo-galactico.css
+     JS relacionado:  js/stars.js (mueve estrellas y nebulosas con el mouse)
+
+     "fondo-imagen" es la capa de atrás de todo: en el Hub muestra la
+     foto de la nebulosa, y en cada otra sección muestra un degradado
+     propio con los colores de esa sección (ver 01-colores-y-fuentes.css).
+     Así cada sección tiene su propio fondo sin duplicar código: solo
+     hay que agregar una regla nueva en 02-fondo-galactico.css.
+
+     Para pedirle a una IA que la edite: "edita partials/01-fondo-galactico.html"
+     ============================================================ -->
+<div class="fondo-imagen" id="fondoImagen" aria-hidden="true"></div>
+<canvas id="stars"></canvas>
+<div class="nebula-bg" aria-hidden="true">
+  <!-- Cada nebulosa vive dentro de su propia "capa" (.nebula-parallax).
+       js/stars.js mueve esa capa según la posición del mouse; la
+       nebulosa de adentro sigue con su propio drift lento normal.
+       data-depth = qué tanto se mueve esa capa (más alto = más cerca /
+       se mueve más, dando sensación de que la atraviesas). -->
+  <div class="nebula-parallax" data-depth="0.5"><div class="nebula-blob b1"></div></div>
+  <div class="nebula-parallax" data-depth="0.8"><div class="nebula-blob b2"></div></div>
+  <div class="nebula-parallax" data-depth="1.2"><div class="nebula-blob b3"></div></div>
+  <div class="nebula-parallax" data-depth="1.6"><div class="nebula-blob b4"></div></div>
+  <div class="nebula-parallax" data-depth="0.3"><div class="aurora-swirl"></div></div>
+</div>
+<div class="grid-horizon" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>

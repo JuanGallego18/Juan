@@ -1,0 +1,17 @@
+/* ================================================================
+   13. JUEGOS
+   ================================================================ */
+.game-card{padding:0;overflow:hidden;}
+.game-cover{height:120px;background:linear-gradient(135deg,var(--surface-3),var(--surface-2));display:flex;align-items:center;justify-content:center;position:relative;}
+.game-cover img{width:100%;height:100%;object-fit:cover;}
+.game-status{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:9px;padding:3px 8px;border-radius:20px;letter-spacing:.05em;text-transform:uppercase;backdrop-filter:blur(4px);}
+.status-backlog{background:rgba(148,152,179,.22);color:var(--text-dim);}
+.status-jugando{background:rgba(79,224,240,.2);color:var(--cyan);}
+.status-completado{background:rgba(92,240,160,.2);color:var(--green);}
+.game-body{padding:14px;}
+.game-title{font-family:var(--font-display);font-weight:600;font-size:14px;}
+.game-plat{font-family:var(--font-mono);font-size:10px;color:var(--text-faint);margin-top:3px;text-transform:uppercase;letter-spacing:.05em;}
+.game-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+.stars-rating{color:var(--amber);font-size:12px;letter-spacing:1px;cursor:pointer;}
+
+

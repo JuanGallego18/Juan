@@ -1,0 +1,41 @@
+<!-- ============================================================
+     MODAL: GASTO / AHORRO
+     JS relacionado: js/expenses.js
+     ============================================================ -->
+<div class="modal-bg" id="modal-expense">
+  <div class="modal">
+    <h3 id="expenseModalTitle">Nuevo registro</h3>
+    <div class="field">
+      <label>Tipo</label>
+      <select id="e-type">
+        <option value="fijo">Gasto fijo</option>
+        <option value="variable">Gasto variable</option>
+        <option value="ahorro">Objetivo de ahorro</option>
+      </select>
+    </div>
+    <div class="field"><label id="e-desc-label">Descripción</label><input id="e-desc" placeholder="Ej. Gasolina, Mercado, Gimnasio"></div>
+    <div class="field-row">
+      <div class="field"><label id="e-amount-label">Monto</label><input id="e-amount" type="number" min="0" step="0.01" placeholder="0.00"></div>
+      <div class="field"><label>Fecha</label><input id="e-date" type="date"></div>
+    </div>
+    <div class="field" id="e-cat-field">
+      <label>Categoría</label>
+      <select id="e-cat">
+        <option>Vivienda</option><option>Comida</option><option>Transporte</option>
+        <option>Moto/Carro</option><option>Tecnología</option><option>Entretenimiento</option>
+        <option>Salud</option><option>Otros</option>
+      </select>
+    </div>
+    <div class="field" id="e-meta-field" style="display:none;">
+      <label>Meta de ahorro (opcional)</label>
+      <input id="e-meta" type="number" min="0" step="0.01" placeholder="Ej. 3000000">
+    </div>
+    <div class="field-checkbox" id="e-paid-field">
+      <label><input id="e-paid" type="checkbox"> Ya está pagado</label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" data-close="modal-expense">Cancelar</button>
+      <button class="btn btn-primary" id="saveExpenseBtn">Guardar</button>
+    </div>
+  </div>
+</div>

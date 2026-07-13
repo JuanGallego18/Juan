@@ -1,0 +1,24 @@
+/* ================================================================
+   3. MARCA FLOTANTE (logo NOVA, esquina superior izquierda)
+   ================================================================ */
+.hud-brand{
+  position:fixed;top:22px;left:24px;z-index:15;
+  display:flex;align-items:center;gap:10px;
+  pointer-events:none;
+}
+.nova-mark{
+  width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--accent-2),var(--accent) 60%,transparent 75%);
+  box-shadow:0 0 18px color-mix(in srgb, var(--accent) 65%, transparent), 0 0 34px color-mix(in srgb, var(--accent-2) 30%, transparent);
+  flex-shrink:0;
+  transition:background 1.2s ease, box-shadow 1.2s ease;
+  animation:mark-pulse 4s ease-in-out infinite;
+}
+@keyframes mark-pulse{ 0%,100%{ filter:brightness(1); } 50%{ filter:brightness(1.25); } }
+.hud-brand-text{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.32em;
+  color:var(--text-dim);
+}
+@media (max-width:760px){ .hud-brand{ top:16px; left:16px; } .hud-brand-text{ display:none; } }
+
+

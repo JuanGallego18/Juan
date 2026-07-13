@@ -1,0 +1,17 @@
+<!-- ============================================================
+     MODAL: CONFIRMAR (genérico, se usa antes de borrar cualquier
+     meta, gasto, rutina, foto o juego — evita borrados accidentales)
+     CSS relacionado: css/secciones/17-interactividad.css
+     JS relacionado:  js/modals.js (función confirmAction)
+     ============================================================ -->
+<div class="modal-bg" id="modal-confirm">
+  <div class="modal confirm-modal">
+    <div class="confirm-icon">✕</div>
+    <h3 id="confirmTitle">¿Eliminar este registro?</h3>
+    <p id="confirmMessage">Esta acción no se puede deshacer.</p>
+    <div class="modal-actions">
+      <button class="btn" data-close="modal-confirm" id="confirmCancelBtn">Cancelar</button>
+      <button class="btn btn-danger" id="confirmOkBtn">Sí, eliminar</button>
+    </div>
+  </div>
+</div>

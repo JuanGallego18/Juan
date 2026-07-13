@@ -1,0 +1,87 @@
+/* ================================================================
+   7. BOTONES (VERSIÓN HOLOGRAMA / NEÓN)
+   ================================================================ */
+.btn{
+  font-family:var(--font-display);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding:10px 20px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--surface-2);
+  color:var(--text);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  backdrop-filter:blur(12px);
+  transition:all .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 150%;
+}
+
+.btn:hover{
+  border-color:var(--accent);
+  color:#fff;
+  background:rgba(0,0,0,0.4);
+  box-shadow:0 0 20px color-mix(in srgb, var(--accent) 60%, transparent), 
+             inset 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent);
+  transform:translateY(-2px) scale(1.02);
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  border:1px solid transparent;
+  color:#000;
+  font-weight:700;
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 40%, transparent);
+  transition:all .3s ease;
+}
+
+.btn-primary:hover{
+  border:1px solid #fff;
+  box-shadow:0 0 30px var(--accent), 0 0 15px var(--accent-2);
+  color:#fff;
+  background: transparent;
+  transform:translateY(-2px) scale(1.05);
+}
+
+.btn-danger{
+  background:transparent;
+  border-color:var(--border-strong);
+  color:var(--rose);
+  padding:8px 14px;
+  font-size:12px;
+}
+
+.btn-danger:hover{
+  background: rgba(255, 42, 122, 0.1);
+  border-color:var(--rose);
+  color:#fff;
+  box-shadow:0 0 20px rgba(255,42,122,.6), inset 0 0 8px rgba(255,42,122,.3);
+  transform: scale(1.05);
+}
+
+.btn-ghost{
+  background:transparent;
+  border-color: transparent;
+}
+.btn-ghost:hover {
+  background: var(--surface-3);
+  border-color: var(--accent);
+}

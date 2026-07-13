@@ -1,0 +1,20 @@
+<!-- ============================================================
+     MODAL: NUEVA RUTINA
+     JS relacionado: js/routines.js
+     ============================================================ -->
+<div class="modal-bg" id="modal-routine">
+  <div class="modal">
+    <h3>Nueva rutina</h3>
+    <div class="field"><label>Nombre de la rutina</label><input id="r-name" placeholder="Ej. Empuje — Lunes"></div>
+    <div class="field"><label>Etiqueta</label><input id="r-tag" placeholder="Ej. Push, Pull, Piernas, Core"></div>
+    <div class="field">
+      <label>Ejercicios</label>
+      <div id="exerciseRows"></div>
+      <button class="btn btn-ghost" style="margin-top:6px;font-size:12px;" id="addExerciseRowBtn">+ Agregar ejercicio</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" data-close="modal-routine">Cancelar</button>
+      <button class="btn btn-primary" id="saveRoutineBtn">Guardar rutina</button>
+    </div>
+  </div>
+</div>
